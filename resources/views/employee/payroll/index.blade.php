@@ -3,12 +3,10 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-lg-12"> <!-- Expanded width for better table view -->
-            <div class="d-flex align-items-center mb-4">
-                <div>
-                    <h2 class="fw-bold text-dark mb-1">My Salary Slips</h2>
-                    <p class="text-muted mb-0">View and download your monthly payslips</p>
-                </div>
-            </div>
+            <x-employee-header 
+                title="My Salary Slips" 
+                description="View and download your monthly salary slips." 
+            />
 
             <!-- Glass Table Card -->
             <div class="glass-card overflow-hidden">

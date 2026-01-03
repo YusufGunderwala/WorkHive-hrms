@@ -1,36 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div
-        class="glass-card mb-5 animate__animated animate__fadeInDown p-4 d-flex justify-content-between align-items-center">
-        <div>
-            <h2 class="fw-bold text-dark mb-1">My Dashboard</h2>
-            <p class="text-muted mb-0">Overview of your activity and performance.</p>
-        </div>
-
-        <div class="d-flex align-items-center gap-3">
-            <!-- Unified Time & Announcement Card -->
-            <div class="px-3 py-2 d-flex align-items-center gap-4">
-                {{-- Clock Section --}}
-                <div class="d-flex align-items-center gap-3 border-end pe-4">
-                    <i class="fas fa-clock text-secondary fa-2x opacity-50"></i>
-                    <span class="fw-bold font-monospace text-dark fs-4" id="live-clock">{{ now()->format('H:i:s') }}</span>
-                </div>
-
-                {{-- Announcement Section (Latest only) --}}
-                @if(isset($announcements) && $announcements->count() > 0)
-                    @php $latest = $announcements->first(); @endphp
-                    <div class="d-flex align-items-center gap-3 animate__animated animate__fadeIn" style="max-width: 500px;">
-                        <i class="fas fa-bullhorn text-warning fa-2x"></i>
-                        <div class="text-truncate">
-                            <span class="fw-bold text-dark fs-5">Meeting:</span>
-                            <span class="text-secondary fs-5">{{ $latest->title }}</span>
-                        </div>
-                    </div>
-                @endif
-            </div>
-        </div>
-    </div>
+    <x-employee-header title="My Dashboard" description="Overview of your activity and performance." />
 
 
     <div class="row g-4 mb-5">
@@ -462,11 +433,11 @@
                     return new bootstrap.Tooltip(tooltipTriggerEl)
                 })
 
-                // Update live clock every second
-                setInterval(() => {
-                    const now = new Date();
-                    document.getElementById('live-clock').innerText = now.toLocaleTimeString();
-                }, 1000);
+                // Update live clock every second (Handled by Header Partial now)
+                // setInterval(() => {
+                //    const now = new Date();
+                //    document.getElementById('live-clock').innerText = now.toLocaleTimeString();
+                // }, 1000);
 
                 // Check every minute for reminder
                 setInterval(checkTimeForReminder, 30000);

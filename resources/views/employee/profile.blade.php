@@ -38,8 +38,7 @@
                         <div class="row g-3 mb-4">
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase text-muted">Email</label>
-                                <input type="email" class="form-control bg-light" value="{{ Auth::user()->email }}"
-                                    readonly>
+                                <input type="email" name="email" class="form-control" value="{{ Auth::user()->email }}">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase text-muted">Phone</label>

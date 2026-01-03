@@ -119,13 +119,19 @@ class EmployeeController extends Controller
 
     public function updateProfile(Request $request)
     {
+        $user = Auth::user();
+
         $request->validate([
+            'email' => 'required|email|unique:users,email,' . $user->id,
             'phone' => 'nullable|string',
             'address' => 'nullable|string',
         ]);
 
-        $employee = Auth::user()->employee;
-        $employee->update($request->only(['phone', 'address']));
+        // Update User Email
+        $user->update(['email' => $request->email]);
+
+        // Update Employee details
+        $user->employee->update($request->only(['phone', 'address']));
 
         return back()->with('success', 'Profile updated successfully.');
     }

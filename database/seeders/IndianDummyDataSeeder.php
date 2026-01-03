@@ -129,15 +129,15 @@ class IndianDummyDataSeeder extends Seeder
 
                 // 2. Create/Update Employee Profile
                 // FIXED: Use Stable ID based on User ID to prevent collisions
-                Employee::updateOrCreate(
+                $employee = Employee::updateOrCreate(
                     ['user_id' => $user->id],
                     [
                         'employee_id' => 'EMP-' . (1000 + $user->id),
-                        'department' => $dept,
-                        'designation' => $empData['role'],
-                        'joining_date' => Carbon::now()->subMonths(rand(4, 36)),
-                        'phone' => '98' . rand(10000000, 99999999),
-                        'address' => $this->getRandomIndianAddress(),
+                        'department' => $dept, // Use $dept from the loop
+                        'designation' => $empData['role'], // Use $empData['role']
+                        'joining_date' => Carbon::now()->subMonths(rand(4, 36)), // Generate dynamically
+                        'phone' => '98' . rand(10000000, 99999999), // Generate dynamically
+                        'address' => $this->getRandomIndianAddress(), // Generate dynamically
                         'base_salary' => rand(30000, 120000),
                     ]
                 );

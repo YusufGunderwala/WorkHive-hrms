@@ -2,21 +2,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold text-dark">My Attendance</h2>
-        <div class="d-flex gap-2">
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-outline-secondary active" onclick="switchView('list')" id="btn-list"><i
-                        class="fas fa-list"></i></button>
-                <button type="button" class="btn btn-outline-secondary" onclick="switchView('grid')" id="btn-grid"><i
-                        class="fas fa-th-large"></i></button>
-                <button type="button" class="btn btn-outline-secondary" onclick="switchView('timeline')"
-                    id="btn-timeline"><i class="fas fa-stream"></i></button>
-                <button type="button" class="btn btn-outline-secondary" onclick="switchView('calendar')"
-                    id="btn-calendar"><i class="fas fa-calendar-alt"></i></button>
+    <x-employee-header title="My Attendance" description="Track your daily check-ins and working hours.">
+        <x-slot:actions>
+            <div class="btn-group shadow-sm" role="group">
+                <button type="button" class="btn btn-light active" onclick="switchView('list')" id="btn-list"
+                    data-bs-toggle="tooltip" title="List View"><i class="fas fa-list"></i></button>
+                <button type="button" class="btn btn-light" onclick="switchView('grid')" id="btn-grid"
+                    data-bs-toggle="tooltip" title="Grid View"><i class="fas fa-th-large"></i></button>
+                <button type="button" class="btn btn-light" onclick="switchView('timeline')" id="btn-timeline"
+                    data-bs-toggle="tooltip" title="Timeline View"><i class="fas fa-stream"></i></button>
+                <button type="button" class="btn btn-light" onclick="switchView('calendar')" id="btn-calendar"
+                    data-bs-toggle="tooltip" title="Calendar View"><i class="fas fa-calendar-alt"></i></button>
             </div>
-        </div>
-    </div>
+        </x-slot:actions>
+    </x-employee-header>
 
     <!-- List View -->
     <div id="view-list" class="view-section animate__animated animate__fadeIn">

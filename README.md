@@ -44,29 +44,29 @@ Dayflow is a production-ready HRMS built with Laravel 10, designed to streamline
 ### Admin
 
 -   **Email**: `admin@workhive.com`
--   **Password**: `password`
+-   **Password**: `WorkHive@2026`
 
 ### Employees
 
 **Sales Department**
 
 -   **Email**: `aarav.sales@workhive.com`
--   **Password**: `password`
+-   **Password**: `WorkHive@2026`
 
 **IT Department**
 
 -   **Email**: `rohan.it@workhive.com`
--   **Password**: `password`
+-   **Password**: `WorkHive@2026`
 
 **HR Department**
 
 -   **Email**: `kavya.hr@workhive.com`
--   **Password**: `password`
+-   **Password**: `WorkHive@2026`
 
 **Operations Department**
 
 -   **Email**: `deepak.operations@workhive.com`
--   **Password**: `password`
+-   **Password**: `WorkHive@2026`
 
 ## Contribution
 
